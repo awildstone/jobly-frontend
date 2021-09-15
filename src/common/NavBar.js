@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, NavLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -29,13 +29,25 @@ const NavBar = ({ logout }) => {
         },
         menuButton: {
           marginRight: theme.spacing(2),
+          "&.active": {
+            textDecoration: 'none',
+            backgroundColor:'black',
+          },
         },
         title: {
           flexGrow: 1,
         },
         navLink: {
             color: 'white',
+            "&.active": {
+              textDecoration: 'none',
           },
+        },
+        button: {
+          "&.active": {
+              background: '#36172d',
+          },
+        },
       }));
 
     const classes = useStyles();
@@ -50,13 +62,13 @@ const NavBar = ({ logout }) => {
                 <MenuIcon />
               </IconButton>
               <Typography variant="h6" className={classes.title}>
-                <Link className={classes.navLink} component={RouterLink} to="/">Jobly</ Link>
+                <Link className={classes.navLink} component={NavLink} to="/">Jobly</ Link>
               </Typography>
-              <Button color="inherit" component={RouterLink} to="/companies">Companies</Button>
-              <Button color="inherit" component={RouterLink} to="/jobs">Jobs</Button>
-              <Button color="inherit" component={RouterLink} to="/applications">View Apps</Button>
-              <Button color="inherit" component={RouterLink} to="/profile">Profile</Button>
-              <Button color="inherit" onClick={logout}>Logout {currentUser.username}</Button>
+              <Button className={classes.button} color="inherit" component={NavLink} to="/companies">Companies</Button>
+              <Button className={classes.button} color="inherit" component={NavLink} to="/jobs">Jobs</Button>
+              <Button className={classes.button} color="inherit" component={NavLink} to="/applications">View Apps</Button>
+              <Button className={classes.button} color="inherit" component={NavLink} to="/profile">Profile</Button>
+              <Button className={classes.button} color="inherit" onClick={logout}>Logout({currentUser.username})</Button>
             </Toolbar>
           </AppBar>
         </div>
@@ -72,10 +84,10 @@ const NavBar = ({ logout }) => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" className={classes.title}>
-              <Link className={classes.navLink} component={RouterLink} to="/">Jobly</ Link>
+              <Link className={classes.navLink} component={NavLink} to="/">Jobly</ Link>
             </Typography>
-            <Button color="inherit" component={RouterLink} to="/login">Login</Button>
-            <Button color="inherit" component={RouterLink} to="/signup">Signup</Button>
+            <Button className={classes.button} color="inherit" component={NavLink} to="/login">Login</Button>
+            <Button className={classes.button} color="inherit" component={NavLink} to="/signup">Signup</Button>
           </Toolbar>
         </AppBar>
       </div>
