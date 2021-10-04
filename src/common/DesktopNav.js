@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import { Link as NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -19,17 +19,18 @@ const DesktopNav = ({ currentUser, logout }) => {
         title: {
           flexGrow: 1,
         },
-        navLink: {
+        link: {
             color: 'white',
-            '&.active': {
+            '&:hover': {
               textDecoration: 'none',
-              backgroundColor: '#36172d',
           },
         },
-        button: {
-          '&.active': {
-            backgroundColor: '#36172d',
-          },
+        activeLink: {
+            background: '#36172d',
+            '&:hover': {
+                textDecoration: 'none',
+                background: '#36172d',
+            },
         },
       }));
 
@@ -41,23 +42,23 @@ const DesktopNav = ({ currentUser, logout }) => {
                 <AppBar className={classes.AppBar}>
                 <Toolbar>
                     <Typography variant="h6" className={classes.title}>
-                        <Link className={classes.navLink} component={NavLink} to="/">
+                        <Link className={classes.link} component={NavLink} to="/">
                             Jobly
                         </Link>
                     </Typography>
-                    <Button className={classes.button} color="inherit" component={NavLink} to="/companies">
+                    <Button activeClassName={classes.activeLink} color="inherit" component={NavLink} to="/companies">
                         Companies
                     </Button>
-                    <Button className={classes.button} color="inherit" component={NavLink} to="/jobs">
+                    <Button activeClassName={classes.activeLink} color="inherit" component={NavLink} to="/jobs">
                         Jobs
                     </Button>
-                    <Button className={classes.button} color="inherit" component={NavLink} to="/applications">
+                    <Button activeClassName={classes.activeLink} color="inherit" component={NavLink} to="/applications">
                         View Apps
                     </Button>
-                    <Button className={classes.button} color="inherit" component={NavLink} to="/profile">
+                    <Button activeClassName={classes.activeLink} color="inherit" component={NavLink} to="/profile">
                         Profile
                     </Button>
-                    <Button className={classes.button} color="inherit" onClick={logout}>
+                    <Button activeClassName={classes.activeLink} color="inherit" onClick={logout}>
                         Logout({currentUser.username})
                     </Button>
                 </Toolbar>
@@ -72,14 +73,14 @@ const DesktopNav = ({ currentUser, logout }) => {
                 <AppBar className={classes.AppBar}>
                     <Toolbar>
                         <Typography variant="h6" className={classes.title}>
-                            <Link className={classes.navLink} component={NavLink} to="/">
+                            <Link className={classes.link} component={NavLink} to="/">
                                 Jobly
                             </ Link>
                         </Typography>
-                        <Button className={classes.button} color="inherit" component={NavLink} to="/login">
+                        <Button activeClassName={classes.activeLink} color="inherit" component={NavLink} to="/login">
                             Login
                         </Button>
-                        <Button className={classes.button} color="inherit" component={NavLink} to="/signup">
+                        <Button activeClassName={classes.activeLink} color="inherit" component={NavLink} to="/signup">
                             Signup
                         </Button>
                     </Toolbar>

@@ -22,15 +22,19 @@ const MobileNav = ({ currentUser, logout }) => {
           },
           menuButton: {
             marginRight: theme.spacing(2),
-            "&.active": {
+            '&:active': {
               textDecoration: 'none',
-              backgroundColor:'black',
             },
           },
         link: {
             textDecoration: 'none',
             color: 'primary',
             fontSize: '20px',
+            '&:hover': {
+                color: 'secondary',
+                fontWeight: 'bold',
+                textDecoration: 'none',
+            },
         },
     }));
 
