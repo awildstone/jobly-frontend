@@ -2,7 +2,7 @@ import React from 'react';
 import UpdateProfileForm from '../forms/UpdateProfileForm';
 import '../App.css';
 import Typography from '@material-ui/core/Typography';
-import { useTheme } from '@material-ui/core/styles';
+// import { useTheme } from '@material-ui/core/styles';
 
 /**
  * Renders a Profile page component.
@@ -11,7 +11,7 @@ import { useTheme } from '@material-ui/core/styles';
  */
 
 const Profile = () => {
-    const theme = useTheme();
+    // const theme = useTheme();
 
     return(
         <div className="formContainer">

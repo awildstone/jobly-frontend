@@ -2,7 +2,7 @@ import React from 'react';
 import SignupForm from '../forms/SignupForm';
 import '../App.css';
 import Typography from '@material-ui/core/Typography';
-import { useTheme } from '@material-ui/core/styles';
+// import { useTheme } from '@material-ui/core/styles';
 
 /**
  * Renders a Signup page component.
@@ -12,7 +12,7 @@ import { useTheme } from '@material-ui/core/styles';
  */
 
 const Signup = ({ signup }) => {
-    const theme = useTheme();
+    // const theme = useTheme();
 
     return(
         <div className="formContainer"> 

@@ -37,13 +37,23 @@ const ApplyButton = ({ jobId }) => {
         }
     }
 
-    return (
-            <Button className={classes.root} onClick={handleClick} disabled={applied}
+    if (applied) {
+        return (
+            <Button className={classes.root} onClick={handleClick} disabled
+                variant="contained" 
+                color="secondary">
+                Applied
+            </Button>
+        );
+    } else {
+        return (
+            <Button className={classes.root} onClick={handleClick}
                 variant="contained" 
                 color="secondary">
                 Apply
             </Button>
-    );
+        );
+    }
 };
 
 export default ApplyButton;
